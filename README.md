@@ -1,62 +1,39 @@
 # egg-mail-template
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
-[![npm download][download-image]][download-url]
+egg-mail-template是一个可以帮助你导入HTML邮件模板到egg的插件。
 
-[npm-image]: https://img.shields.io/npm/v/egg-mail-template.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-mail-template
-[travis-image]: https://img.shields.io/travis/eggjs/egg-mail-template.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-mail-template
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-mail-template.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-mail-template?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-mail-template.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-mail-template
-[snyk-image]: https://snyk.io/test/npm/egg-mail-template/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-mail-template
-[download-image]: https://img.shields.io/npm/dm/egg-mail-template.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-mail-template
+egg-mail-template is a plugin that can help you import your HTML email templates into egg.
 
-<!--
-Description here.
--->
-
-## Install
+## 安装 Install
 
 ```bash
-$ npm i egg-mail-template --save
+npm i egg-mail-template --save
 ```
 
-## Usage
+## 开启插件 Usage
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.mailTemplate = {
   enable: true,
   package: 'egg-mail-template',
 };
 ```
 
-## Configuration
+你可以配合egg-mailer使用本插件，插件会读取固定目录下的HTML文件作为发送HTML邮件的模板，挂载至app下。
+
+You can use this plugin with egg-mailer, this plugin will read your templates from a certain directory and mount them on app object.
+
+## 配置 Configuration
+
+参考配置：
 
 ```js
 // {app_root}/config/config.default.js
 exports.mailTemplate = {
-};
+  path: '', // path of directory which contains your html templates
+}
 ```
-
-see [config/config.default.js](config/config.default.js) for more detail.
-
-## Example
-
-<!-- example here -->
-
-## Questions & Suggestions
-
-Please open an issue [here](https://github.com/eggjs/egg/issues).
 
 ## License
 

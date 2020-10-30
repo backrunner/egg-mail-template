@@ -1,14 +1,24 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 
 class MailTemplates {
   constructor(app) {
-    this.app = app;
-    this.config = app.config;
+    this.config = app.config.mailTemplate;
+    app.mailTemplates = this.collectTemplates();
   }
   collectTemplates() {
-    
+    const { path: dir } = this.config;
+    const res = fs.readdirSync(dir, { encoding: 'utf-8' });
+    const map = {};
+    res.forEach(file => {
+      if (path.extname(file).toLowerCase() === '.html') {
+        const template = fs.readFileSync(path.resolve(dir, file), { encoding: 'utf-8' });
+        map[file.replace('.html', '')] = template;
+      }
+    });
+    return map;
   }
 }
 

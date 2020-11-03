@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const camelcase = require('camelcase');
 
 class MailTemplates {
   constructor(app) {
@@ -15,7 +16,8 @@ class MailTemplates {
     res.forEach(file => {
       if (path.extname(file).toLowerCase() === '.html') {
         const template = fs.readFileSync(path.resolve(dir, file), { encoding: 'utf-8' });
-        map[file.replace('.html', '')] = template;
+        const key = camelcase(file.replace('.html', ''));
+        map[key] = template;
       }
     });
     return map;

@@ -10,7 +10,10 @@
     "eggPlugin",
     "egg-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "camelcase": "^6.2.0",
+    "randomstring": "^1.1.5"
+  },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",

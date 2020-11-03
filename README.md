@@ -24,6 +24,14 @@ exports.mailTemplate = {
 
 You can use this plugin with egg-mailer, this plugin will read your templates from a certain directory and mount them on app object.
 
+获取模板的方式：
+
+How to get the template:
+
+```js
+const template = app.mailTemplates[fileNameInCamelCase];
+```
+
 ## 配置 Configuration
 
 参考配置：
